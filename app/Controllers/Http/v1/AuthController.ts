@@ -20,8 +20,7 @@ export default class AuthController {
   public async show({ auth, response }: HttpContextContract) {
     if (auth.isAuthenticated) {
       return response.json(await auth.user)
-    } else {
-      return response.json({ isLoggedIn: false })
     }
+    return response.json({ isLoggedIn: false })
   }
 }
