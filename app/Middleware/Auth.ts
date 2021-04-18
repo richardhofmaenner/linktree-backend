@@ -28,7 +28,6 @@ export default class AuthMiddleware {
    * during the current request.
    */
   protected async authenticate(auth: HttpContextContract['auth'], guards: any[]) {
-
     for (const guard of guards) {
       if (await auth.use(guard).check()) {
         /**
