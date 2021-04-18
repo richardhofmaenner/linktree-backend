@@ -2,7 +2,9 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-param-reassign */
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import { AuthenticationException } from '@adonisjs/auth/build/standalone'
+import Env from '@ioc:Adonis/Core/Env'
+import AppException from 'App/Exceptions/AppException'
+import { ErrorCodes } from 'Contracts/error'
 
 /**
  * Auth middleware is meant to restrict un-authenticated access to a given route
@@ -15,7 +17,7 @@ export default class AuthMiddleware {
   /**
   * The URL to redirect to when request is Unauthorized
   */
-  protected redirectTo = '/login'
+  protected redirectTo = Env.get('LOGIN_URL')
 
   /**
    * Authenticates the current HTTP request against a custom set of defined
@@ -26,17 +28,8 @@ export default class AuthMiddleware {
    * during the current request.
    */
   protected async authenticate(auth: HttpContextContract['auth'], guards: any[]) {
-    /**
-     * Hold reference to the guard last attempted within the for loop. We pass
-     * the reference of the guard to the "AuthenticationException", so that
-     * it can decide the correct response behavior based upon the guard
-     * driver
-     */
-    let guardLastAttempted: string | undefined
 
     for (const guard of guards) {
-      guardLastAttempted = guard
-
       if (await auth.use(guard).check()) {
         /**
          * Instruct auth to use the given guard as the default guard for
@@ -51,12 +44,7 @@ export default class AuthMiddleware {
     /**
      * Unable to authenticate using any guard
      */
-    throw new AuthenticationException(
-      'Unauthorized access',
-      'E_UNAUTHORIZED_ACCESS',
-      guardLastAttempted,
-      this.redirectTo,
-    )
+    throw new AppException('You are not allowed to do this.', 403, ErrorCodes.E_UNAUTHORIZED_ACCESS)
   }
 
   /**

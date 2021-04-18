@@ -20,4 +20,9 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async () => ({ hello: 'world' }))
+Route.group(() => {
+  Route.put('register', 'v1/RegistersController.store')
+  Route.post('login', 'v1/AuthController.create').middleware(['guest'])
+  Route.get('logout', 'v1/AuthController.destroy').middleware(['isLoggedIn'])
+  Route.get('auth/info', 'v1/AuthController.show')
+}).prefix('v1')

@@ -25,4 +25,7 @@ export default Env.rules({
   MYSQL_USER: Env.schema.string(),
   MYSQL_PASSWORD: Env.schema.string.optional(),
   MYSQL_DB_NAME: Env.schema.string(),
+  SESSION_DRIVER: Env.schema.string(),
+  LOGIN_URL: Env.schema.string(),
+  DASHBOARD_URL: Env.schema.string(),
 })
