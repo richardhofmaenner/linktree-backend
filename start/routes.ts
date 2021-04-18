@@ -25,4 +25,8 @@ Route.group(() => {
   Route.post('login', 'v1/AuthController.create').middleware(['guest'])
   Route.get('logout', 'v1/AuthController.destroy').middleware(['isLoggedIn'])
   Route.get('auth/info', 'v1/AuthController.show')
+
+  Route.group(() => {
+    Route.put('/')
+  }).prefix('links').middleware(['isLoggedIn'])
 }).prefix('v1')
