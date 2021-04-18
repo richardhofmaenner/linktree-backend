@@ -1,7 +1,12 @@
 {
-  "extends": ["plugin:adonis/typescriptApp", "prettier", "prettier/@typescript-eslint"],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": ["error"]
-  }
+    "extends": [
+      "plugin:adonis/typescriptApp",
+      "airbnb-typescript/base"
+    ],
+    "rules": {
+      "semi": ["error", "never"],
+      "class-methods-use-this": ["off"],
+      "@typescript-eslint/semi": ["error", "never"],
+      "max-len": ["error", 120]
+    }
 }
