@@ -27,6 +27,10 @@ Route.group(() => {
   Route.get('auth/info', 'v1/AuthController.show')
 
   Route.group(() => {
-    Route.put('/')
+    Route.get('/', 'v1/LinksController.index')
+    Route.put('/', 'v1/LinksController.store')
+    Route.delete(':id', 'v1/LinksController.destroy').where('id', /^[0-9]+$/)
+    Route.get(':id', 'v1/LinksController.show').where('id', /^[0-9]+$/)
+    Route.patch(':id', 'v1/LinksController.update').where('id', /^[0-9]+$/)
   }).prefix('links').middleware(['isLoggedIn'])
 }).prefix('v1')

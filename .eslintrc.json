@@ -8,6 +8,8 @@
       "class-methods-use-this": ["off"],
       "@typescript-eslint/semi": ["error", "never"],
       "max-len": ["error", 120],
-      "@typescript-eslint/lines-between-class-members": ["off"]
+      "@typescript-eslint/lines-between-class-members": ["off"],
+      "object-curly-newline": ["off", "never"],
+      "prefer-destructuring": ["off"]
     }
 }

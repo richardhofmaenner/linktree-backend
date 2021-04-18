@@ -9,8 +9,8 @@ export default class Links extends BaseSchema {
       table.string('link_text')
       table.string('link_location')
       table.bigInteger('clicks').defaultTo(0)
-      table.integer('index').nullable()
-      table.bigInteger('userId').notNullable()
+      table.integer('index').defaultTo(0)
+      table.bigInteger('user_id').notNullable()
       table.timestamps(true)
     })
   }
