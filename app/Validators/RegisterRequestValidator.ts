@@ -37,6 +37,11 @@ export default class RegisterRequestValidator {
       rules.minLength(8),
       rules.confirmed(),
     ]),
+    slug: schema.string({}, [
+      rules.minLength(2),
+      rules.unique({ table: 'users', column: 'slug' }),
+      rules.regex(/^[a-z0-9]+$/),
+    ]),
   })
 
   /**

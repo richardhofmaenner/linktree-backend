@@ -33,4 +33,8 @@ Route.group(() => {
     Route.get(':id', 'v1/LinksController.show').where('id', /^[0-9]+$/)
     Route.patch(':id', 'v1/LinksController.update').where('id', /^[0-9]+$/)
   }).prefix('links').middleware(['isLoggedIn'])
+
+  Route.group(() => {
+    Route.get(':slug', 'v1/SlugSearchesController.index').where('slug', /^[a-z0-9]+$/)
+  }).prefix('t')
 }).prefix('v1')

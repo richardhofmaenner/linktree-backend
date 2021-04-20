@@ -5,7 +5,7 @@ export default class Users extends BaseSchema {
 
   public async up() {
     this.schema.table(this.tableName, (table) => {
-      table.string('slug').notNullable().after('remember_me_token')
+      table.string('slug').notNullable().unique('slug').after('remember_me_token')
     })
   }
 

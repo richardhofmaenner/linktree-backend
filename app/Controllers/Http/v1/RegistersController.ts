@@ -9,6 +9,7 @@ export default class RegistersController {
     const newUser = new User()
     newUser.email = validatedData.email
     newUser.password = validatedData.password
+    newUser.slug = validatedData.slug
     await newUser.save()
 
     return response.status(201).json({
