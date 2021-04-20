@@ -1,0 +1,32 @@
+name: Docker Publish
+
+on:
+  workflow_dispatch:
+  release:
+    types:
+      - published
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - uses: docker/login-action@v1.8.0
+        name: Login to docker
+        with:
+          username: 'richardhofmaenner'
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: |
+            richardhofmaenner/linktree-backend:latest
+            richardhofmaenner/linktree-backend${{ github.event.release.tag_name }}
