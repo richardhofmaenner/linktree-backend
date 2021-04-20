@@ -4,7 +4,7 @@ This is a simple clone of [linktr.ee](https://linktr.ee). This only one part of 
 which is currently in development.
 
 ## Run this clone
-Just run the container from the [Docker Hub](https://hub.docker.com/repository/docker/richardhofmaenner/linktree-backend)
+Just run the container from the [Docker Hub](https://hub.docker.com/r/richardhofmaenner/linktree-backend)
 with the command
 ```bash
 docker run -d richardhofmaenner/linktree-backend
