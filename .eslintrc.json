@@ -10,6 +10,7 @@
       "max-len": ["error", 120],
       "@typescript-eslint/lines-between-class-members": ["off"],
       "object-curly-newline": ["off", "never"],
-      "prefer-destructuring": ["off"]
+      "prefer-destructuring": ["off"],
+      "quotes": ["error", "single"]
     }
 }
