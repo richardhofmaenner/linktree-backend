@@ -31,3 +31,6 @@ The ` LOGIN_URL ` is used to redirect a user which has been logged out (or not s
 login page.
 
 The ` DASHBOARD_URL ` is used to redirect the user after login to the frontend dashboard.
+
+## Questions?
+If you have any question about this project or do you struggle to set this up, feel free to create a [issue](https://github.com/richardhofmaenner/linktree-backend/issues)
