@@ -29,4 +29,4 @@ jobs:
           push: true
           tags: |
             richardhofmaenner/linktree-backend:latest
-            richardhofmaenner/linktree-backend${{ github.event.release.tag_name }}
+            richardhofmaenner/linktree-backend:${{ github.event.release.tag_name }}
