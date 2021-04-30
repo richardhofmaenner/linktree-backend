@@ -4,11 +4,26 @@ import Env from '@ioc:Adonis/Core/Env'
 
 export default class AuthController {
   public async create({ request, auth, response }: HttpContextContract) {
-    const validatedData = await request.validate(LoginRequestValidator)
+    try {
+      const validatedData = await request.validate(LoginRequestValidator)
 
-    await auth.attempt(validatedData.email, validatedData.password)
-
-    return response.redirect(Env.get('DASHBOARD_URL'))
+      try {
+        await auth.attempt(validatedData.email, validatedData.password)
+        return response.redirect(Env.get('DASHBOARD_URL'))
+      } catch {
+        return response
+          .plainCookie('error', 'Account does not exists or email/password does not match our records', {
+            httpOnly: false,
+          })
+          .redirect(Env.get('LOGIN_URL'))
+      }
+    } catch (e) {
+      return response
+        .plainCookie('validation-error', e.messages, {
+          httpOnly: false,
+        })
+        .redirect(Env.get('LOGIN_URL'))
+    }
   }
 
   public async destroy({ auth, response }: HttpContextContract) {
