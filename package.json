@@ -11,7 +11,7 @@
     "ace": "node ace"
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^3.0.0",
+    "@adonisjs/assembler": "^5.1.1",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "adonis-preset-ts": "^2.1.0",
@@ -25,11 +25,11 @@
     "youch-terminal": "^1.1.0"
   },
   "dependencies": {
-    "@adonisjs/auth": "^5.1.1",
-    "@adonisjs/core": "~5.0.4-preview-rc",
-    "@adonisjs/lucid": "^10.0.0",
-    "@adonisjs/repl": "^1.0.0",
-    "@adonisjs/session": "^4.0.6",
+    "@adonisjs/auth": "^8.0.2",
+    "@adonisjs/core": "^5.1.6",
+    "@adonisjs/lucid": "^14.0.0",
+    "@adonisjs/repl": "^3.1.2",
+    "@adonisjs/session": "^6.0.3",
     "@poppinss/utils": "^3.0.5",
     "luxon": "^1.26.0",
     "mysql": "^2.18.1",

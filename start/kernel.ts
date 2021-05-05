@@ -21,8 +21,8 @@ import Server from '@ioc:Adonis/Core/Server'
 |
 */
 Server.middleware.register([
-  'Adonis/Core/BodyParserMiddleware',
-  'App/Middleware/SilentAuth',
+  () => import('@ioc:Adonis/Core/BodyParser'),
+  () => import('App/Middleware/SilentAuth'),
 ])
 
 /*
@@ -42,6 +42,6 @@ Server.middleware.register([
 |
 */
 Server.middleware.registerNamed({
-  isLoggedIn: 'App/Middleware/Auth',
-  guest: 'App/Middleware/Guest',
+  isLoggedIn: () => import('App/Middleware/Auth'),
+  guest: () => import('App/Middleware/Guest'),
 })
