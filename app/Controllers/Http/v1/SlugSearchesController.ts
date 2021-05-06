@@ -16,7 +16,7 @@ export default class SlugSearchesController {
       })
 
       const user = await User.findByOrFail('slug', validatedParams.slug)
-      await user.preload('links')
+      await user.load('links')
       const links = user.links
       const serializedLinks = links.map((link) => link.serialize({
         fields: {

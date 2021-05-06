@@ -10,7 +10,7 @@ import LinkUpdateRequestValidator from 'App/Validators/LinkUpdateRequestValidato
 export default class LinksController {
   public async index({ auth, response }: HttpContextContract) {
     const user = <User>auth.user
-    await user.preload('links')
+    await user.load('links')
     const links = user.links
 
     return response.status(200)
