@@ -101,6 +101,7 @@ const sessionConfig: SessionConfig = {
   |
   */
   redisConnection: 'local',
+  enabled: true,
 }
 
 export default sessionConfig
