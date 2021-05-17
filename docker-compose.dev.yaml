@@ -6,6 +6,8 @@ services:
           dockerfile: Dockerfile
         env_file:
           - .env
+        environment:
+          - NODE_ENV=production                      
         ports:
             - 127.0.0.1:3333:3333
         restart: unless-stopped
